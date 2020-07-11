@@ -16,6 +16,7 @@ import { reducer, initialState } from './reducers/userReducer';
 import Navbar from './Pages/NavBar';
 export const UserContext = createContext()
 
+const URL = 'https://be-chatapp.herokuapp.com/'
 
 function App() {
   const [socket, setSocket] = React.useState(null);
@@ -26,7 +27,7 @@ function App() {
   const setupSocket = () => {
     const token = localStorage.getItem("CC_Token");
     if (token && !socket) {
-      const newSocket = io("http://localhost:5000", {
+      const newSocket = io(`${URL}`, {
         query: {
           token: localStorage.getItem("CC_Token"),
         },

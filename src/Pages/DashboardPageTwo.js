@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import makeToast from '../Toaster';
 import '../Styles/chat.css'
-
+const URL = 'https://be-chatapp.herokuapp.com/'
 
 
 const DashboardPage = (props) => {
@@ -14,7 +14,7 @@ const DashboardPage = (props) => {
 
     const getChatrooms = () => {
       Axios
-        .get("http://localhost:5000/chatroom", {
+        .get(`${URL}chatroom`, {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("CC_Token"),
           },
@@ -33,7 +33,7 @@ const DashboardPage = (props) => {
 
     const createRoom = async () => {
         Axios
-        .post("http://localhost:5000/chatroom",{ name: newRoom } ,{
+        .post(`${URL}chatroom`,{ name: newRoom } ,{
           headers: {
             Authorization: "Bearer " + localStorage.getItem("CC_Token"),
           },
@@ -51,7 +51,7 @@ const DashboardPage = (props) => {
 
     const JoinRoom = async () => {
         Axios
-        .post("http://localhost:5000/chatroom/joinroom",{ name: joinRoom } ,{
+        .post(`${URL}chatroom/joinroom`,{ name: joinRoom } ,{
           headers: {
             Authorization: "Bearer " + localStorage.getItem("CC_Token"),
           },
@@ -70,7 +70,7 @@ const DashboardPage = (props) => {
 
     const leaveFromRoom = async (chatroomId) => {
       Axios
-      .post("http://localhost:5000/chatroom/leavefromroom",{ chatroomId } ,{
+      .post(`${URL}chatroom/leavefromroom`,{ chatroomId } ,{
         headers: {
           Authorization: "Bearer " + localStorage.getItem("CC_Token"),
         },

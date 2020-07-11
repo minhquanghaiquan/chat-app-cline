@@ -3,7 +3,7 @@ import axios from 'axios';
 import makeToast from '../Toaster'
 import '../Styles/login.css'
 import { useHistory } from 'react-router';
-
+const URL = 'https://be-chatapp.herokuapp.com/'
 
 
 const RegisterPage = () => {
@@ -19,7 +19,7 @@ const RegisterPage = () => {
         const password = passwordRef.current.value;
 
         axios
-        .post("http://localhost:5000/user/register", {
+        .post(`${URL}user/register`, {
           name,
           email,
           password,

@@ -5,6 +5,7 @@ import DashboardPageTwo from './DashboardPageTwo'
 import ScrollToBottom from 'react-scroll-to-bottom';
 import ReactEmoji from 'react-emoji';
 import '../Styles/message.css'
+const URL = 'https://be-chatapp.herokuapp.com/'
 
 
 
@@ -65,7 +66,7 @@ const ChatroomPage = ({ match,socket}) => {
 
     useEffect(()=> {
       Axios
-        .get(`http://localhost:5000/chatroom/${chatroomId}`, {
+        .get(`${URL}chatroom/${chatroomId}`, {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("CC_Token"),
           },
@@ -80,7 +81,7 @@ const ChatroomPage = ({ match,socket}) => {
 
     useEffect(()=> {
       Axios
-      .post(`http://localhost:5000/getroomname`,{chatroomId} ,{
+      .post(`${URL}getroomname`,{chatroomId} ,{
         headers: {
           Authorization: "Bearer " + localStorage.getItem("CC_Token"),
         },

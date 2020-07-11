@@ -4,7 +4,7 @@ import makeToast from '../Toaster';
 import { withRouter, useHistory } from 'react-router-dom';
 import { UserContext } from '../App';
 import '../Styles/login.css'
-
+const URL = 'https://be-chatapp.herokuapp.com/'
 
 const LoginPage = (props) => {
     const emailRef = React.createRef();
@@ -17,7 +17,7 @@ const LoginPage = (props) => {
       const password = passwordRef.current.value;
   
       Axios
-        .post("http://localhost:5000/user/login", {
+        .post(`${URL}user/login`, {
           email,
           password,
         })
