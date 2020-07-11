@@ -51,7 +51,7 @@ const DashboardPage = (props) => {
 
     const JoinRoom = async () => {
       Axios
-      .post(`${URL}joinroom`,{ name: joinRoom } ,{
+      .post(`${URL}chatroom/joinroom`,{ name: joinRoom } ,{
         headers: {
           Authorization: "Bearer " + localStorage.getItem("CC_Token"),
         },
